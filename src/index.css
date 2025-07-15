@@ -28,12 +28,22 @@ body {
   justify-content: center;
   gap: 10px;
   height: 100%;
+  width: 100%;
 }
 
 ol{
-  width: 33%;
+  width: 100%;
   height: 800px;
   overflow: auto;  
+}
+
+.ol-wrapper{
+    width: 100%;
+
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .spin {

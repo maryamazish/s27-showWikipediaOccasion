@@ -80,35 +80,45 @@ const ShowOccasion = ({ month, day }) => {
         </Card>
       )}
       <div className="list-wrapper">
-        <ol>
-          {holidays.map((holiday) => {
-            return (
-              <>
+        <div className="ol-wrapper">
+          <h2>holidays</h2>
+          <ol>
+            {holidays.map((holiday) => {
+              return (
+                <>
+                  <li key={nanoid()}>
+                    <p>{holiday.text}</p>
+                  </li>
+                </>
+              );
+            })}
+          </ol>
+        </div>
+
+        <div className="ol-wrapper">
+          <h2>births</h2>
+          <ol>
+            {births.map((birth) => {
+              return (
                 <li key={nanoid()}>
-                  <p>{holiday.text}</p>
+                  <p>{birth.text}</p>
                 </li>
-              </>
-            );
-          })}
-        </ol>
-        <ol>
-          {births.map((birth) => {
-            return (
-              <li key={nanoid()}>
-                <p>{birth.text}</p>
-              </li>
-            );
-          })}
-        </ol>
-        <ol>
-          {deaths.map((death) => {
-            return (
-              <li key={nanoid()}>
-                <p>{death.text}</p>
-              </li>
-            );
-          })}
-        </ol>
+              );
+            })}
+          </ol>
+        </div>
+        <div className="ol-wrapper">
+          <h2>deaths</h2>
+          <ol>
+            {deaths.map((death) => {
+              return (
+                <li key={nanoid()}>
+                  <p>{death.text}</p>
+                </li>
+              );
+            })}
+          </ol>
+        </div>
       </div>
     </>
   );
