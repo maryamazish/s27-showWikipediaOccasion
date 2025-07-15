@@ -22,28 +22,29 @@ body {
   border: solid 1px rgba(0, 0, 0, 0.484);
 }
 
-.list-wrapper{
+.list-wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
   height: 100%;
   width: 100%;
+  margin-top: 20px;
 }
 
-ol{
+ol {
   width: 100%;
   height: 800px;
-  overflow: auto;  
+  overflow: auto;
 }
 
-.ol-wrapper{
-    width: 100%;
-
-    display: flex;
+.ol-wrapper {
+  width: 100%;
+  display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  border: #010807 1px solid;
 }
 
 .spin {
@@ -71,11 +72,11 @@ ol{
   }
 }
 
-.button-wrapper{
-  gap : 20px
+.button-wrapper {
+  gap: 20px;
 }
 
-button{
+button {
   border: 1px black solid;
   border-radius: 20px;
   width: 100px;
@@ -83,8 +84,12 @@ button{
   font-size: 15px;
 }
 
-.center{
+.center {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+h2{
+  border-bottom: #010807 3px dashed;
 }

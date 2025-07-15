@@ -2,7 +2,6 @@ import { cache, useEffect, useState } from "react";
 import { nanoid } from "nanoid";
 import Spinner from "../general/spinner";
 import Card from "../general/card";
-import Title from "../general/title";
 
 const ShowOccasion = ({ month, day }) => {
   const [holidays, setHolidays] = useState([]);
@@ -10,16 +9,13 @@ const ShowOccasion = ({ month, day }) => {
   const [deaths, setDeaths] = useState([]);
 
   const [state, setState] = useState("Idle");
-  console.log("state", state);
 
   const getData = async () => {
     try {
       setState("pending");
-      console.log(state);
       setHolidays([]);
       setBirths([]);
       setDeaths([]);
-      console.log("start");
       const [responseHolidays, responseBirths, responseDeaths] =
         await Promise.all([
           fetch(
@@ -33,11 +29,11 @@ const ShowOccasion = ({ month, day }) => {
           ),
         ]);
 
-      if (!responseHolidays.ok || !responseBirths.ok || !responseDeaths.ok) {
-        throw new Error(
-          `HTTP error! status: ${responseHolidays.status} ${responseBirths.status} ${responseDeaths.status}`
-        );
-      }
+      // if (!responseHolidays.ok || !responseBirths.ok || !responseDeaths.ok) {
+      //   throw new Error(
+      //     `HTTP error! status: ${responseHolidays.status} ${responseBirths.status} ${responseDeaths.status}`
+      //   );
+      // }
 
       const [resultHolidays, resultBirths, resultDeaths] = await Promise.all([
         responseHolidays.json(),
@@ -50,9 +46,8 @@ const ShowOccasion = ({ month, day }) => {
       setDeaths(resultDeaths.deaths);
 
       setState("finish");
-      console.log("end...");
     } catch (error) {
-      console.log("error.message", error.message);
+      console.log("error.message :", error.message);
       setState("error");
     }
   };
@@ -85,11 +80,9 @@ const ShowOccasion = ({ month, day }) => {
           <ol>
             {holidays.map((holiday) => {
               return (
-                <>
-                  <li key={nanoid()}>
-                    <p>{holiday.text}</p>
-                  </li>
-                </>
+                <li key={nanoid()}>
+                  <p>{holiday.text}</p>
+                </li>
               );
             })}
           </ol>
